@@ -1,22 +1,24 @@
-input("From a scale of 1 to 10, how would you want the tightness of your shoes to be?")
-def ("shoelace"):
-if tightness==1
-    print("The tightness of your shoelaces is one")
-if tightness==2
-    print("The tightness of your shoelaces is two")
-if tightness==3
-    print("The tightness of your shoelaces is three")
-if tightness==4
-    print("The tightness of your shoelaces is four")
-if tightness==5
-    print("The tightness of your shoelaces is five")
-if tightness==6
-    print("The tightness of your shoelaces is six")
-if tightness==7
-    print("The tightness of your shoelaces is seven")
-if tightness==8
-    print("The tightness of your shoeslaces is eight")
-if tightness==9
-    print("The tightness of your shoelaces is nine")
-if tightness==10
-    print("The tightness of your shoelaces is ten")
+def shoelace (tightness):
+    if tightness==1:
+        return "The tightness of your shoelaces is one"
+    elif tightness==2:
+        return "The tightness of your shoelaces is two"
+    elif tightness==3:
+        return "The tightness of your shoelaces is three"
+    elif tightness==4:
+        return "The tightness of your shoelaces is four"
+    elif tightness==5:
+        return "The tightness of your shoelaces is five"
+    elif tightness==6:
+        return "The tightness of your shoelaces is six"
+    elif tightness==7:
+        return "The tightness of your shoelaces is seven"
+    elif tightness==8:
+        return "The tightness of your shoeslaces is eight"
+    elif tightness==9:
+        return "The tightness of your shoelaces is nine"
+    elif tightness==10:
+        return "The tightness of your shoelaces is ten"
+    else:
+        return "Please put in a number from 1 to 10"
+print(shoelace(int(input("From a scale of 1 to 10, how would you want the tightness of your shoes to be?"))))
