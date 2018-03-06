@@ -1,5 +1,4 @@
-# Self-Tightening Shoes
-
+# SELF-TIGHTENING SHOES
 Computer Sci- Possible Project
 
 Maikel Lin
