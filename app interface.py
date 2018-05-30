@@ -3,6 +3,7 @@ from pygame.locals import *
 import sys
 bg = (0,0,0)
 
+meterheight = 500
 
 class Meter:
     def __init__(self, screen, x = 100, y = 50, tightness = 100):
@@ -16,26 +17,61 @@ class Meter:
         self.meterrect = pygame.draw.rect(self.screen, (255, 0, 0), (self.x, self.y, 100, self.tightness))
 
 
+class Button:
+    x = 0
+    y = 0
+    image = 0
+    def __init__(self):
+        pass
+
+    def draw(self, imagefile, x, y, gameDisplay):
+        self.x = x
+        self.y = y
+        self.image = pygame.image.load(imagefile)
+        gameDisplay.blit(self.image,(self.x, self.y))
 
 
+    def check_mouse(self,pos,click,direction):
+        mx = pos[0]
+        my = pos[0]
+        global meterheight
+
+        #print(pos)
+        if self.x < mx and self.x + 180 > mx and self.y < my and self.y + 180 > my and click:
+        #if self.y < my and self.y + 180 > my and click:
+            print("click", direction)
+            if direction == "up":
+                meterheight = meterheight + 100
+            else:
+                meterheight = meterheight - 100
 
 def main():
     pygame.init()
     screen = pygame.display.set_mode((480,720))
-    screen.fill(bg)
+
     meter = Meter(screen)
+    plusbutton = Button()
+    minusbutton = Button()
     while True:
+        click = False
         for event in pygame.event.get():
             if event.type == QUIT or event.type == KEYDOWN and event.key == K_ESCAPE:
                 pygame.quit()
                 quit()
-        meter.draw(500)
+            if event.type == pygame.MOUSEBUTTONUP:
+                click = True
+
+        pos = pygame.mouse.get_pos()
+        keystate = pygame.key.get_pressed()
+        screen.fill(bg)
+        print(meterheight)
+        meter.draw(meterheight)
+        plusbutton.draw("plus.png",300,100,screen)
+        minusbutton.draw("minus.png",300,300,screen)
+        plusbutton.check_mouse(pos, click, "up")
+        minusbutton.check_mouse(pos, click, "down")
+
         pygame.display.update()
 
-
-
-
-myImage = image.open('+ - sign.jpg')
-myIamge.show()
 
 main()
