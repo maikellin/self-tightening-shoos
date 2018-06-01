@@ -33,12 +33,11 @@ class Button:
 
     def check_mouse(self,pos,click,direction):
         mx = pos[0]
-        my = pos[0]
+        my = pos[1] #this was set to pos[0] I changed it to pos[1]  now it works - Mr Aronson
         global meterheight
 
         #print(pos)
         if self.x < mx and self.x + 180 > mx and self.y < my and self.y + 180 > my and click:
-        #if self.y < my and self.y + 180 > my and click:
             print("click", direction)
             if direction == "up":
                 meterheight = meterheight + 100
@@ -64,7 +63,7 @@ def main():
         pos = pygame.mouse.get_pos()
         keystate = pygame.key.get_pressed()
         screen.fill(bg)
-        print(meterheight)
+        #print(meterheight)
         meter.draw(meterheight)
         plusbutton.draw("plus.png",300,100,screen)
         minusbutton.draw("minus.png",300,300,screen)
